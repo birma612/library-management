@@ -2637,3 +2637,25 @@ index modified(modified))
 ALTER TABLE `tabLibrary Member` ADD COLUMN `member_id` varchar(140), ADD COLUMN `first_name` varchar(140), ADD COLUMN `last_name` varchar(140), ADD COLUMN `full_name` varchar(140), ADD COLUMN `email` varchar(140) unique, ADD COLUMN `phone` varchar(140), ADD COLUMN `membership_type` varchar(140) default 'Standard', ADD COLUMN `membership_start_date` date, ADD COLUMN `membership_end_date` date, ADD COLUMN `status` varchar(140) default 'Active'
 2026-06-05 06:21:29,065 WARNING database DDL Query made to DB:
 ALTER TABLE `tabLibrary Member` ADD UNIQUE INDEX IF NOT EXISTS email (`email`)
+2026-06-05 06:59:06,710 WARNING database DDL Query made to DB:
+create table `tabBook` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus int(1) not null default '0',
+			idx int(8) not null default '0',
+			`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-06-05 07:09:54,919 WARNING database DDL Query made to DB:
+ALTER TABLE `tabBook` ADD COLUMN `book_id` varchar(140), ADD COLUMN `title` varchar(140), ADD COLUMN `author` varchar(140), ADD COLUMN `isbn` varchar(140) unique, ADD COLUMN `publisher` varchar(140), ADD COLUMN `publication_year` int(11) not null default 0, ADD COLUMN `category` varchar(140), ADD COLUMN `total_copies` int(11) not null default 1, ADD COLUMN `available_copies` int(11) not null default 0, ADD COLUMN `status` varchar(140) default 'Available'
+2026-06-05 07:09:54,920 WARNING database DDL Query made to DB:
+ALTER TABLE `tabBook` ADD UNIQUE INDEX IF NOT EXISTS isbn (`isbn`)
